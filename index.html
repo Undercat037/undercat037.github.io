@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AE projects - Gentoo-style tooling for Arch: aura-emerge (secure emerge) and ae-eselect (modular eselect). ae-catalyst is planned." />
+  <meta property="og:title" content="AE projects" />
+  <meta property="og:description" content="Gentoo-style tooling for Arch: aura-emerge and ae-eselect." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0c0c14" />
+  <title>AE projects - aura-emerge · ae-eselect</title>
+  <link rel="icon" type="image/svg+xml" href="logos/slash-logo-32x32.svg" />
+  <link rel="icon" type="image/x-icon" href="logos/slash-logo-32x32.ico" />
+  <link rel="shortcut icon" href="logos/slash-logo-32x32.ico" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar-brand" href="index.html">
+      <img src="logos/slash-logo-64x64.svg" alt="AE projects" width="36" height="36" />
+      <div class="name"><span class="c-purple">AE</span><span class="c-red">PROJECTS</span></div>
+    </a>
+    <div class="topbar-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-lang="ua" aria-pressed="false">UA</button>
+        <button type="button" class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <button type="button" class="menu-toggle" id="menu-toggle" data-i18n-attr="aria-label:menu_open" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <aside class="sidebar" id="sidebar" aria-label="Site navigation">
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title" data-i18n="nav_pages">Pages</div>
+        <a class="nav-link" href="aura-emerge/"><span class="dot"></span> aura-emerge <span class="nav-suffix" data-i18n="btn_page">Page</span></a>
+        <a class="nav-link" href="ae-eselect/"><span class="dot"></span> ae-eselect <span class="nav-suffix" data-i18n="btn_page">Page</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title" data-i18n="btn_projects">AE PROJECTS</div>
+        <a class="nav-link" href="#projects"><span class="dot"></span> <span data-i18n="nav_projects_overview">Projects</span></a>
+        <a class="nav-link" href="#aura-emerge"><span class="dot"></span> aura-emerge</a>
+        <a class="nav-link" href="#ae-eselect"><span class="dot"></span> ae-eselect</a>
+        <a class="nav-link" href="#catalyst"><span class="dot"></span> ae-catalyst
+          <span class="mini-chip"><span class="lang-block" data-lang-block="en">Planning</span><span class="lang-block" data-lang-block="ua" hidden>Планування</span>
+<span class="lang-block" data-lang-block="ru" hidden>Планирование</span></span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="shell">
+    <main class="main">
+      <div class="content">
+        <section class="hero" id="top">
+          <div class="hero-badge">Undercat037 · Arch Linux · GitHub Pages</div>
+          <h1>
+            <span class="accent-purple">AE</span> <span class="accent-red">PROJECTS</span>
+          </h1>
+          <p class="hero-lead">
+            <span class="lang-block" data-lang-block="en">
+              Gentoo-style tooling for Arch Linux: the package manager and its eselect companion.
+            </span>
+            <span class="lang-block" data-lang-block="ua" hidden>
+              Інструменти у стилі Gentoo для Arch Linux: менеджер пакунків і його eselect-компаньйон.
+            </span>
+<span class="lang-block" data-lang-block="ru" hidden>
+              Инструменты в стиле Gentoo для Arch Linux: менеджер пакетов и его eselect-компаньон.
+            </span>
+          </p>
+        </section>
+
+        <section id="projects">
+          <h2>
+            <span class="lang-block" data-lang-block="en">Projects</span>
+            <span class="lang-block" data-lang-block="ua" hidden>Проєкти</span>
+<span class="lang-block" data-lang-block="ru" hidden>Проекты</span>
+          </h2>
+
+          <div class="proj-grid">
+            <article class="proj-card purple">
+              <h3><img src="logos/slash-logo-64x64.svg" alt="" /> aura-emerge</h3>
+              <p class="lang-block" data-lang-block="en">
+                A standalone Gentoo-style emerge for Arch. Official repos through libalpm;
+                AUR and ABS built in a bwrap-sandboxed pipeline with PKGBUILD supply-chain
+                scanning. World file, sets, package.mask/protect/freeze, profiles, hooks.
+                Stable channel on the AUR: <code>paru -S aura-emerge</code>.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                Автономний emerge у стилі Gentoo для Arch. Офіційні репозиторії через libalpm;
+                AUR і ABS — збірка в пісочниці bwrap зі скануванням PKGBUILD. World-файл,
+                набори, package.mask/protect/freeze, профілі, хуки.
+                Стабільний канал в AUR: <code>paru -S aura-emerge</code>.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                Автономный emerge в стиле Gentoo для Arch. Официальные репозитории через libalpm;
+                AUR и ABS — сборка в песочнице bwrap со сканированием PKGBUILD. World-файл,
+                наборы, package.mask/protect/freeze, профили, хуки.
+                Стабильный канал в AUR: <code>paru -S aura-emerge</code>.
+              </p>
+              <div class="proj-links">
+                <a class="btn btn-ghost" href="#aura-emerge" data-i18n="btn_details">Details</a>
+              </div>
+            </article>
+
+            <article class="proj-card blue">
+              <h3><img src="logos/slash-logo-128x128.svg" alt="" /> ae-eselect</h3>
+              <p class="lang-block" data-lang-block="en">
+                A modular eselect in the Gentoo style for aura-emerge: the profile symlink,
+                repositories and their keys, world, caches, the pacman db lock and Java
+                environments — a separate package, like in Gentoo.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                Модульний eselect у стилі Gentoo для aura-emerge: симлінк профілю,
+                репозиторії та їхні ключі, world, кеши, блокування бази pacman і
+                Java-середовища — окремий пакунок, як і в Gentoo.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                Модульный eselect в стиле Gentoo для aura-emerge: симлинк профиля,
+                репозитории и их ключи, world, кеши, блокировка базы pacman и
+                Java-окружения — отдельный пакет, как и в Gentoo.
+              </p>
+              <div class="proj-links">
+                <a class="btn btn-ghost" href="#ae-eselect" data-i18n="btn_details">Details</a>
+              </div>
+            </article>
+
+            <article class="proj-card planning">
+              <span class="status-chip status-plan" data-i18n="status_planning">Planning</span>
+              <h3>ae-catalyst</h3>
+              <p class="lang-block" data-lang-block="en">
+                Planned. A stage3 image generator from a profile or set — details will
+                appear once the design is settled.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                Заплановано. Генератор stage3-образів із профілю чи набору — деталі
+                з'являться, коли дизайн устоїться.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                Запланирован. Генератор stage3-образов из профиля или набора — детали
+                появятся, когда дизайн устоится.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <div class="sep"></div>
+
+        <section id="aura-emerge">
+          <h2 class="proj-title"><span class="accent-purple">AURA</span>-<span class="accent-red">EMERGE</span></h2>
+
+          <div class="proj-links">
+            <a class="btn btn-red" href="aura-emerge/" data-i18n="btn_page">Page</a>
+            <a class="btn btn-primary" href="aura-emerge/docs.html#install" data-i18n="btn_install">Install</a>
+            <a class="btn btn-blue" href="https://aur.archlinux.org/packages/aura-emerge" target="_blank" rel="noopener" data-i18n="btn_aur_short">AUR</a>
+            <a class="btn btn-gh btn-ico" href="https://github.com/Undercat037/aura-emerge" target="_blank" rel="noopener" data-i18n-attr="aria-label:btn_github" aria-label="GitHub"><svg class="gh-ico" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+          </div>
+
+          <div class="spec-list">
+            <div class="spec-row">
+              <span class="spec-key">
+                <span class="lang-block" data-lang-block="en">Security first</span>
+                <span class="lang-block" data-lang-block="ua" hidden>Безпека понад усе</span>
+<span class="lang-block" data-lang-block="ru" hidden>Безопасность прежде всего</span>
+              </span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en">AST scanner + bwrap + final tarball audit</span>
+                <span class="lang-block" data-lang-block="ua" hidden>AST-сканер + bwrap + фінальний аудит тарболів</span>
+<span class="lang-block" data-lang-block="ru" hidden>AST-сканер + bwrap + финальный аудит тарболлов</span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">
+                <span class="lang-block" data-lang-block="en">Gentoo workflow</span>
+                <span class="lang-block" data-lang-block="ua" hidden>Процес як у Gentoo</span>
+<span class="lang-block" data-lang-block="ru" hidden>Процесс как в Gentoo</span>
+              </span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en">Arch realization of portage control</span>
+                <span class="lang-block" data-lang-block="ua" hidden>Керування portage, реалізоване на Arch</span>
+<span class="lang-block" data-lang-block="ru" hidden>Управление portage, реализованное на Arch</span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">
+                <span class="lang-block" data-lang-block="en">World &amp; sets</span>
+                <span class="lang-block" data-lang-block="ua" hidden>World і набори</span>
+<span class="lang-block" data-lang-block="ru" hidden>World и наборы</span>
+              </span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en"><code>@world</code>, custom sets, <code>--tree</code>, <code>--keep-going</code></span>
+                <span class="lang-block" data-lang-block="ua" hidden><code>@world</code>, власні набори, <code>--tree</code>, <code>--keep-going</code></span>
+<span class="lang-block" data-lang-block="ru" hidden><code>@world</code>, пользовательские наборы, <code>--tree</code>, <code>--keep-going</code></span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">
+                <span class="lang-block" data-lang-block="en">Sources</span>
+                <span class="lang-block" data-lang-block="ua" hidden>Джерела</span>
+<span class="lang-block" data-lang-block="ru" hidden>Источники</span>
+              </span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en">official repos, AUR and ABS in one pipeline</span>
+                <span class="lang-block" data-lang-block="ua" hidden>офіційні репозиторії, AUR і ABS в одному конвеєрі</span>
+<span class="lang-block" data-lang-block="ru" hidden>официальные репозитории, AUR и ABS в одном конвейере</span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">
+                <span class="lang-block" data-lang-block="en">Mask &amp; hold</span>
+                <span class="lang-block" data-lang-block="ua" hidden>Mask і hold</span>
+<span class="lang-block" data-lang-block="ru" hidden>Mask и hold</span>
+              </span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en"><code>package.mask</code> / <code>unmask</code> / <code>protect</code> / <code>freeze</code></span>
+                <span class="lang-block" data-lang-block="ua" hidden><code>package.mask</code> / <code>unmask</code> / <code>protect</code> / <code>freeze</code></span>
+<span class="lang-block" data-lang-block="ru" hidden><code>package.mask</code> / <code>unmask</code> / <code>protect</code> / <code>freeze</code></span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">
+                <span class="lang-block" data-lang-block="en">Maintenance</span>
+                <span class="lang-block" data-lang-block="ua" hidden>Супровід</span>
+<span class="lang-block" data-lang-block="ru" hidden>Сопровождение</span>
+              </span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en"><code>--revdep-rebuild</code>, <code>--devel</code>, libalpm hooks</span>
+                <span class="lang-block" data-lang-block="ua" hidden><code>--revdep-rebuild</code>, <code>--devel</code>, хуки libalpm</span>
+<span class="lang-block" data-lang-block="ru" hidden><code>--revdep-rebuild</code>, <code>--devel</code>, хуки libalpm</span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">
+                <span class="lang-block" data-lang-block="en">Portage parity</span>
+                <span class="lang-block" data-lang-block="ua" hidden>Паритет із Portage</span>
+<span class="lang-block" data-lang-block="ru" hidden>Паритет с Portage</span>
+              </span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en">profiles, Portage-style output, bash/zsh/fish completion</span>
+                <span class="lang-block" data-lang-block="ua" hidden>профілі, вивід у стилі Portage, автодоповнення bash/zsh/fish</span>
+<span class="lang-block" data-lang-block="ru" hidden>профили, вывод в стиле Portage, автодополнение bash/zsh/fish</span>
+              </span>
+            </div>
+          </div>
+
+          <pre class="term demo"><code><span class="t-ps">$</span> <span class="t-cmd">emerge -u @world</span>
+<span class="t-ps">$</span> <span class="t-cmd">emerge firefox --aur --pkgbuild-view -a</span></code></pre>
+        </section>
+
+        <div class="sep"></div>
+
+        <section id="ae-eselect">
+          <h2 class="proj-title sec-blue"><span class="accent-purple">AE</span>-<span class="accent-red">ESELECT</span></h2>
+
+          <div class="proj-links">
+            <a class="btn btn-red" href="ae-eselect/" data-i18n="btn_page">Page</a>
+            <a class="btn btn-primary" href="ae-eselect/docs.html#install" data-i18n="btn_install">Install</a>
+            <a class="btn btn-gh btn-ico" href="https://github.com/Undercat037/ae-eselect" target="_blank" rel="noopener" data-i18n-attr="aria-label:btn_github" aria-label="GitHub"><svg class="gh-ico" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+          </div>
+
+          <div class="spec-list blue">
+            <div class="spec-row">
+              <span class="spec-key">
+                <span class="lang-block" data-lang-block="en">Modular</span>
+                <span class="lang-block" data-lang-block="ua" hidden>Модульність</span>
+<span class="lang-block" data-lang-block="ru" hidden>Модульность</span>
+              </span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en">one binary, eight eselect modules</span>
+                <span class="lang-block" data-lang-block="ua" hidden>один бінарник, вісім модулів eselect</span>
+<span class="lang-block" data-lang-block="ru" hidden>один бинарник, восемь модулей eselect</span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">profile</span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en"><code>make.profile</code> symlink: <code>list</code>, <code>show</code>, <code>set</code></span>
+                <span class="lang-block" data-lang-block="ua" hidden>симлінк <code>make.profile</code>: <code>list</code>, <code>show</code>, <code>set</code></span>
+<span class="lang-block" data-lang-block="ru" hidden>симлинк <code>make.profile</code>: <code>list</code>, <code>show</code>, <code>set</code></span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">repository</span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en"><code>repos.conf</code> + <code>eselect.conf</code>, signing keys, mirrorlists</span>
+                <span class="lang-block" data-lang-block="ua" hidden><code>repos.conf</code> + <code>eselect.conf</code>, ключі підпису, mirrorlist</span>
+<span class="lang-block" data-lang-block="ru" hidden><code>repos.conf</code> + <code>eselect.conf</code>, ключи подписи, mirrorlist</span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">reflector</span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en">rank mirrors: <code>-n N</code>, <code>-t</code> seconds, <code>--protocol</code></span>
+                <span class="lang-block" data-lang-block="ua" hidden>ранжування дзеркал: <code>-n N</code>, <code>-t</code> секунди, <code>--protocol</code></span>
+<span class="lang-block" data-lang-block="ru" hidden>ранжирование зеркал: <code>-n N</code>, <code>-t</code> секунды, <code>--protocol</code></span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">world</span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en"><code>show</code> / <code>regen</code> against <code>/etc/portage/world</code></span>
+                <span class="lang-block" data-lang-block="ua" hidden><code>show</code> / <code>regen</code> щодо <code>/etc/portage/world</code></span>
+<span class="lang-block" data-lang-block="ru" hidden><code>show</code> / <code>regen</code> по <code>/etc/portage/world</code></span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">cache · db</span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en">pacman cache cleanup, <code>db.lck</code> lock / unlock</span>
+                <span class="lang-block" data-lang-block="ua" hidden>чистка кешу pacman, <code>db.lck</code> lock / unlock</span>
+<span class="lang-block" data-lang-block="ru" hidden>чистка кеша pacman, <code>db.lck</code> lock / unlock</span>
+              </span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">java · news</span>
+              <span class="spec-desc">
+                <span class="lang-block" data-lang-block="en"><code>/usr/lib/jvm/default</code>, Arch news: <code>list</code> / <code>read</code></span>
+                <span class="lang-block" data-lang-block="ua" hidden><code>/usr/lib/jvm/default</code>, новини Arch: <code>list</code> / <code>read</code></span>
+<span class="lang-block" data-lang-block="ru" hidden><code>/usr/lib/jvm/default</code>, новости Arch: <code>list</code> / <code>read</code></span>
+              </span>
+            </div>
+          </div>
+
+          <pre class="term demo term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect profile set 3</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect reflector rank -n 10 -t 5 --protocol https garuda cachyos-v3 cachyos-core-v3 cachyos-extra-v3 cachyos chaotic-aur blackarch</span></code></pre>
+        </section>
+
+        <div class="sep"></div>
+
+        <section id="catalyst" class="stub">
+          <p class="plan-note">
+            <span class="status-chip status-plan" data-i18n="status_planning">Planning</span>
+            <strong>ae-catalyst</strong> —
+            <span class="lang-block" data-lang-block="en">a stage3 image generator from a profile or set.</span>
+            <span class="lang-block" data-lang-block="ua" hidden>генератор stage3-образів із профілю чи набору.</span>
+<span class="lang-block" data-lang-block="ru" hidden>генератор stage3-образов из профиля или набора.</span>
+          </p>
+        </section>
+
+        <footer class="site-footer">
+          <span>
+            © <span id="year">2026</span>
+            <strong>Undercat037</strong> · GPL-3.0
+          </span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

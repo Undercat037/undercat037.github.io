@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ae-eselect - a modular eselect for aura-emerge: profiles, repositories and keys, world, caches, the pacman db lock and Java environments." />
+  <meta property="og:title" content="ae-eselect - eselect for aura-emerge" />
+  <meta property="og:description" content="A modular eselect for aura-emerge: profiles, repositories and their keys, world, caches, the pacman db lock and Java environments." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0c0c14" />
+  <title>ae-eselect - eselect for aura-emerge</title>
+  <link rel="icon" type="image/svg+xml" href="../logos/slash-logo-128x128.svg" />
+  <link rel="stylesheet" href="../css/fonts.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar-brand" href="index.html">
+      <img src="../logos/slash-logo-128x128.svg" alt="ae-eselect" width="36" height="36" />
+      <div class="name inline"><span class="brand-slash">//</span> <span class="c-esel">ESELECT</span></div>
+    </a>
+    <div class="topbar-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-lang="ua" aria-pressed="false">UA</button>
+        <button type="button" class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a class="btn btn-ghost btn-projects" href="../" data-i18n="btn_projects">AE PROJECTS</a>
+      <a class="btn btn-ghost" href="https://github.com/Undercat037/ae-eselect" target="_blank" rel="noopener" data-i18n="btn_github">GitHub</a>
+      <a class="btn btn-primary" href="docs.html#install" data-i18n="btn_install">Install</a>
+      <button type="button" class="menu-toggle" id="menu-toggle" data-i18n-attr="aria-label:menu_open" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <aside class="sidebar" id="sidebar" aria-label="Site navigation">
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title" data-i18n="nav_pages">Pages</div>
+        <a class="nav-link active" href="index.html" data-page="index.html"><span class="dot"></span> <span data-i18n="nav_overview">Overview</span></a>
+        <a class="nav-link" href="docs.html" data-page="docs.html"><span class="dot"></span> <span data-i18n="nav_docs">Documentation</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title" data-i18n="nav_start">Start</div>
+        <a class="nav-link" href="#overview"><span class="dot"></span> <span data-i18n="nav_overview">Overview</span></a>
+        <a class="nav-link" href="#features"><span class="dot"></span> <span data-i18n="nav_features">Features</span></a>
+        <a class="nav-link" href="#quickstart"><span class="dot"></span> <span data-i18n="nav_quickstart">Quick start</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title" data-i18n="nav_modules">Modules</div>
+        <a class="nav-link" href="docs.html#profile"><span class="dot"></span> profile</a>
+        <a class="nav-link" href="docs.html#repository"><span class="dot"></span> repository</a>
+        <a class="nav-link" href="docs.html#reflector"><span class="dot"></span> reflector</a>
+        <a class="nav-link" href="docs.html#tools"><span class="dot"></span> world · news · cache · db · java</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title" data-i18n="nav_more">More</div>
+        <a class="nav-link" href="#links"><span class="dot"></span> <span data-i18n="nav_links">Links</span></a>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="shell">
+    <main class="main">
+      <div class="content">
+        <section class="hero" id="overview">
+          <div class="hero-badge" data-i18n="eselect_badge">Modular · Gentoo-style · For aura-emerge</div>
+          <h1>
+            <span class="accent-purple">AE</span>-<span class="accent-red">ESELECT</span>
+          </h1>
+          <p class="hero-lead" data-i18n="eselect_lead">
+            A modular eselect for aura-emerge: profiles, repositories and their keys, world, caches, the pacman db lock and Java environments.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="docs.html#install" data-i18n="btn_get_started">Get started</a>
+            <a class="btn btn-blue" href="https://github.com/Undercat037/ae-eselect" target="_blank" rel="noopener" data-i18n="btn_view_github">View on GitHub</a>
+          </div>
+        </section>
+
+        <section id="features">
+          <h2 data-i18n="features_title">Features</h2>
+          <p>
+            <span class="lang-block" data-lang-block="en">
+              Like in Gentoo, eselect is a separate package next to emerge. One binary,
+              eight modules: everything auxiliary that the package manager itself should
+              not have to do — profiles, repositories, world, caches, the db lock and
+              Java environments.
+            </span>
+            <span class="lang-block" data-lang-block="ua" hidden>
+              Як і в Gentoo, eselect — окремий пакунок поруч із emerge. Один бінарник,
+              вісім модулів: усе допоміжне, чим менеджер пакунків сам не повинен
+              займатися — профілі, репозиторії, world, кеші, блокування бази й
+              Java-середовища.
+            </span>
+<span class="lang-block" data-lang-block="ru" hidden>
+              Как и в Gentoo, eselect — отдельный пакет рядом с emerge. Один бинарник,
+              восемь модулей: всё вспомогательное, чем менеджер пакетов сам заниматься
+              не должен — профили, репозитории, world, кеши, блокировка базы и
+              Java-окружения.
+            </span>
+          </p>
+
+          <div class="feature-grid">
+            <article class="feature-card purple">
+              <span class="tag tag-purple">profile</span>
+              <h3 class="lang-block" data-lang-block="en">Profile symlink</h3>
+              <h3 class="lang-block" data-lang-block="ua" hidden>Симлінк профілю</h3>
+<h3 class="lang-block" data-lang-block="ru" hidden>Симлинк профиля</h3>
+              <p class="lang-block" data-lang-block="en">
+                <code>make.profile</code> points into the <code>/var/db/portage/profiles</code> tree.
+                <code>list</code>, <code>show</code>, <code>set</code> — by number or by path,
+                atomically, nothing gets deleted.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                <code>make.profile</code> вказує на дерево <code>/var/db/portage/profiles</code>.
+                <code>list</code>, <code>show</code>, <code>set</code> — за номером або шляхом,
+                атомарно, нічого не видаляється.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                <code>make.profile</code> указывает на дерево <code>/var/db/portage/profiles</code>.
+                <code>list</code>, <code>show</code>, <code>set</code> — по номеру или по пути,
+                атомарно, ничего не удаляется.
+              </p>
+            </article>
+            <article class="feature-card red">
+              <span class="tag tag-red">repository</span>
+              <h3 class="lang-block" data-lang-block="en">Repos &amp; keys</h3>
+              <h3 class="lang-block" data-lang-block="ua" hidden>Репозиторії та ключі</h3>
+<h3 class="lang-block" data-lang-block="ru" hidden>Репозитории и ключи</h3>
+              <p class="lang-block" data-lang-block="en">
+                <code>repos.conf</code>/<code>eselect.conf</code>: <code>add</code>,
+                <code>enable</code>, <code>disable</code>, <code>remove</code> — plus
+                signing-key and mirrorlist import; <code>packages</code> lists what a repo provides.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                <code>repos.conf</code>/<code>eselect.conf</code>: <code>add</code>,
+                <code>enable</code>, <code>disable</code>, <code>remove</code> — плюс імпорт
+                ключа й mirrorlist; <code>packages</code> показує, що дає репозиторій.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                <code>repos.conf</code>/<code>eselect.conf</code>: <code>add</code>,
+                <code>enable</code>, <code>disable</code>, <code>remove</code> — плюс импорт
+                ключа и mirrorlist; <code>packages</code> показывает, что даёт репозиторий.
+              </p>
+            </article>
+            <article class="feature-card blue">
+              <span class="tag tag-blue">reflector</span>
+              <h3 class="lang-block" data-lang-block="en">Mirror ranking</h3>
+              <h3 class="lang-block" data-lang-block="ua" hidden>Рейтинг дзеркал</h3>
+<h3 class="lang-block" data-lang-block="ru" hidden>Рейтинг зеркал</h3>
+              <p class="lang-block" data-lang-block="en">
+                Ranks repository mirrorlists, fastest first: <code>-n N</code>,
+                <code>-t</code> seconds, <code>-j</code> jobs, <code>--protocol</code>,
+                <code>--active-only</code>.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                Ранжує mirrorlist репозиторіїв, найшвидші першими: <code>-n N</code>,
+                <code>-t</code> секунди, <code>-j</code> jobs, <code>--protocol</code>,
+                <code>--active-only</code>.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                Ранжирует mirrorlist репозиториев, самые быстрые первыми: <code>-n N</code>,
+                <code>-t</code> секунды, <code>-j</code> jobs, <code>--protocol</code>,
+                <code>--active-only</code>.
+              </p>
+            </article>
+            <article class="feature-card purple">
+              <span class="tag tag-purple">java</span>
+              <h3 class="lang-block" data-lang-block="en">Java environments</h3>
+              <h3 class="lang-block" data-lang-block="ua" hidden>Java-середовища</h3>
+<h3 class="lang-block" data-lang-block="ru" hidden>Java-окружения</h3>
+              <p class="lang-block" data-lang-block="en">
+                <code>/usr/lib/jvm/default</code> via <code>status</code>, <code>get</code>,
+                <code>set</code>, <code>unset</code>, <code>fix</code> — also available
+                as <code>archlinux-java</code>.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                <code>/usr/lib/jvm/default</code> через <code>status</code>, <code>get</code>,
+                <code>set</code>, <code>unset</code>, <code>fix</code> — доступний і як
+                <code>archlinux-java</code>.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                <code>/usr/lib/jvm/default</code> через <code>status</code>, <code>get</code>,
+                <code>set</code>, <code>unset</code>, <code>fix</code> — доступен и как
+                <code>archlinux-java</code>.
+              </p>
+            </article>
+            <article class="feature-card red">
+              <span class="tag tag-red">news</span>
+              <h3 class="lang-block" data-lang-block="en">Arch News</h3>
+              <h3 class="lang-block" data-lang-block="ua" hidden>Новини Arch</h3>
+<h3 class="lang-block" data-lang-block="ru" hidden>Новости Arch</h3>
+              <p class="lang-block" data-lang-block="en">
+                <code>list</code> and <code>read</code> — delegates to
+                <code>emerge --news</code>, same Portage-style output.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                <code>list</code> і <code>read</code> — делегує
+                <code>emerge --news</code>, той самий вивід у стилі Portage.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                <code>list</code> и <code>read</code> — делегирует
+                <code>emerge --news</code>, тот же вывод в стиле Portage.
+              </p>
+            </article>
+            <article class="feature-card blue">
+              <span class="tag tag-blue">world</span>
+              <h3 class="lang-block" data-lang-block="en">World regen</h3>
+              <h3 class="lang-block" data-lang-block="ua" hidden>Regen world</h3>
+<h3 class="lang-block" data-lang-block="ru" hidden>Regen world</h3>
+              <p class="lang-block" data-lang-block="en">
+                <code>show</code> and <code>regen</code>: adds explicitly installed packages
+                that are missing from <code>/etc/portage/world</code>.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                <code>show</code> і <code>regen</code>: додає явно встановлені пакунки,
+                яких бракує у <code>/etc/portage/world</code>.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                <code>show</code> и <code>regen</code>: добавляет явно установленные пакеты,
+                которых не хватает в <code>/etc/portage/world</code>.
+              </p>
+            </article>
+            <article class="feature-card purple">
+              <span class="tag tag-purple">cache</span>
+              <h3 class="lang-block" data-lang-block="en">Cache cleanup</h3>
+              <h3 class="lang-block" data-lang-block="ua" hidden>Чистка кешів</h3>
+<h3 class="lang-block" data-lang-block="ru" hidden>Чистка кешей</h3>
+              <p class="lang-block" data-lang-block="en">
+                The pacman cache and <code>~/.cache/aura-emerge/</code> of every user:
+                <code>--pkgcache</code>, <code>--sources</code>, <code>--packages</code>,
+                <code>--build</code>, <code>--all</code> — with <code>-p</code> preview.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                Кеш pacman і <code>~/.cache/aura-emerge/</code> всіх користувачів:
+                <code>--pkgcache</code>, <code>--sources</code>, <code>--packages</code>,
+                <code>--build</code>, <code>--all</code> — із прев'ю <code>-p</code>.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                Кеш pacman и <code>~/.cache/aura-emerge/</code> всех пользователей:
+                <code>--pkgcache</code>, <code>--sources</code>, <code>--packages</code>,
+                <code>--build</code>, <code>--all</code> — с превью <code>-p</code>.
+              </p>
+            </article>
+            <article class="feature-card red">
+              <span class="tag tag-red">db</span>
+              <h3 class="lang-block" data-lang-block="en">pacman db lock</h3>
+              <h3 class="lang-block" data-lang-block="ua" hidden>Блокування бази pacman</h3>
+<h3 class="lang-block" data-lang-block="ru" hidden>Блокировка базы pacman</h3>
+              <p class="lang-block" data-lang-block="en">
+                <code>status</code>, <code>lock</code> and <code>unlock</code> of
+                <code>/var/lib/pacman/db.lck</code> — unlock refuses while a package
+                manager is running.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                <code>status</code>, <code>lock</code> і <code>unlock</code> для
+                <code>/var/lib/pacman/db.lck</code> — unlock відмовляє, поки працює
+                пакетний менеджер.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                <code>status</code>, <code>lock</code> и <code>unlock</code> для
+                <code>/var/lib/pacman/db.lck</code> — unlock отказывает, пока работает
+                пакетный менеджер.
+              </p>
+            </article>
+            <article class="feature-card blue">
+              <span class="tag tag-blue">output</span>
+              <h3 class="lang-block" data-lang-block="en">Portage-style output</h3>
+              <h3 class="lang-block" data-lang-block="ua" hidden>Вивід у стилі Portage</h3>
+<h3 class="lang-block" data-lang-block="ru" hidden>Вывод в стиле Portage</h3>
+              <p class="lang-block" data-lang-block="en">
+                Green bold headings, numbered <code>[N]</code> lists, <code>*</code> marks
+                the active entry, <code>!!!</code> errors — plus <code>--brief</code> and
+                <code>--colour=yes|no|auto</code>.
+              </p>
+              <p class="lang-block" data-lang-block="ua" hidden>
+                Жирні зелені заголовки, нумеровані списки <code>[N]</code>, <code>*</code>
+                позначає активний запис, помилки <code>!!!</code> — плюс
+                <code>--brief</code> і <code>--colour=yes|no|auto</code>.
+              </p>
+<p class="lang-block" data-lang-block="ru" hidden>
+                Жирные зелёные заголовки, нумерованные списки <code>[N]</code>, <code>*</code>
+                помечает активную запись, ошибки <code>!!!</code> — плюс
+                <code>--brief</code> и <code>--colour=yes|no|auto</code>.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="quickstart">
+          <h2 data-i18n="section_quickstart">Quick start</h2>
+          <p>
+            <span data-i18n="qs_not_installed">Not installed yet?</span>
+            <a href="docs.html#install" data-i18n="qs_see_install">See the installation guide.</a>
+          </p>
+          <ol class="steps">
+            <li>
+              <span class="lang-block" data-lang-block="en">See a module's actions — every module works the same way:</span>
+              <span class="lang-block" data-lang-block="ua" hidden>Дії модуля — усі модулі працюють однаково:</span>
+<span class="lang-block" data-lang-block="ru" hidden>Действия модуля — все модули работают одинаково:</span>
+              <pre><code>eselect profile</code></pre>
+            </li>
+            <li>
+              <span class="lang-block" data-lang-block="en">Switch the profile by number or by path:</span>
+              <span class="lang-block" data-lang-block="ua" hidden>Змінити профіль за номером або шляхом:</span>
+<span class="lang-block" data-lang-block="ru" hidden>Сменить профиль по номеру или по пути:</span>
+              <pre><code>sudo eselect profile set 3</code></pre>
+            </li>
+            <li>
+              <span class="lang-block" data-lang-block="en">Add a repository, with its signing key:</span>
+              <span class="lang-block" data-lang-block="ua" hidden>Додати репозиторій, разом із ключем підпису:</span>
+<span class="lang-block" data-lang-block="ru" hidden>Добавить репозиторий, вместе с ключом подписи:</span>
+              <pre><code>eselect repository add my-repo &lt;uri&gt; --sig L</code></pre>
+            </li>
+            <li>
+              <span class="lang-block" data-lang-block="en">Preview a full cache cleanup before running it:</span>
+              <span class="lang-block" data-lang-block="ua" hidden>Спочатку переглянути повне чищення кешів:</span>
+<span class="lang-block" data-lang-block="ru" hidden>Сначала посмотреть полное очищение кешей:</span>
+              <pre><code>eselect cache clean --all -p</code></pre>
+            </li>
+          </ol>
+        </section>
+
+        <div class="sep"></div>
+
+        <section id="links">
+          <h2 data-i18n="section_links">Links</h2>
+          <ul>
+            <li>
+              <a href="https://github.com/Undercat037/ae-eselect" target="_blank" rel="noopener">GitHub repository</a>
+            </li>
+            <li>
+              <a href="docs.html" data-i18n="nav_docs">Documentation</a>
+            </li>
+            <li>
+              <a href="../aura-emerge/">aura-emerge</a>
+              ·
+              <a href="../" data-i18n="btn_projects">AE PROJECTS</a>
+            </li>
+          </ul>
+        </section>
+
+        <footer class="site-footer">
+          <span>
+            © <span id="year">2026</span>
+            <strong>Undercat037</strong> · GPL-3.0
+          </span>
+          <span>
+            <a href="https://github.com/Undercat037/ae-eselect" data-i18n="footer_link_repo">Source Project</a>
+            ·
+            <a href="../aura-emerge/">aura-emerge</a>
+            ·
+            <a href="../">AE projects</a>
+          </span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

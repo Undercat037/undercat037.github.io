@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ae-eselect - a modular eselect for aura-emerge: profiles, repositories and keys, world, caches, the pacman db lock and Java environments." />
+  <meta property="og:title" content="ae-eselect - eselect for aura-emerge" />
+  <meta property="og:description" content="A modular eselect for aura-emerge: profiles, repositories and their keys, world, caches, the pacman db lock and Java environments." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0c0c14" />
+  <title>ae-eselect - Documentation</title>
+  <link rel="icon" type="image/svg+xml" href="../logos/slash-logo-128x128.svg" />
+  <link rel="stylesheet" href="../css/fonts.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar-brand" href="index.html">
+      <img src="../logos/slash-logo-128x128.svg" alt="ae-eselect" width="36" height="36" />
+      <div class="name inline"><span class="brand-slash">//</span> <span class="c-esel">ESELECT</span></div>
+    </a>
+    <div class="topbar-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-lang="ua" aria-pressed="false">UA</button>
+        <button type="button" class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a class="btn btn-ghost btn-projects" href="../" data-i18n="btn_projects">AE PROJECTS</a>
+      <a class="btn btn-ghost" href="https://github.com/Undercat037/ae-eselect" target="_blank" rel="noopener" data-i18n="btn_github">GitHub</a>
+      <a class="btn btn-primary" href="#install" data-i18n="btn_install">Install</a>
+      <button type="button" class="menu-toggle" id="menu-toggle" data-i18n-attr="aria-label:menu_open" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <aside class="sidebar" id="sidebar" aria-label="Site navigation">
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title" data-i18n="nav_pages">Pages</div>
+        <a class="nav-link" href="index.html" data-page="index.html"><span class="dot"></span> <span data-i18n="nav_overview">Overview</span></a>
+        <a class="nav-link active" href="docs.html" data-page="docs.html"><span class="dot"></span> <span data-i18n="nav_docs">Documentation</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title" data-i18n="nav_setup">Setup</div>
+        <a class="nav-link" href="#install"><span class="dot"></span> <span data-i18n="nav_install">Installation</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title" data-i18n="nav_modules">Modules</div>
+        <a class="nav-link" href="#modules"><span class="dot"></span> <span data-i18n="nav_overview">Overview</span></a>
+        <a class="nav-link" href="#profile"><span class="dot"></span> profile</a>
+        <a class="nav-link" href="#repository"><span class="dot"></span> repository</a>
+        <a class="nav-link" href="#reflector"><span class="dot"></span> reflector</a>
+        <a class="nav-link" href="#tools"><span class="dot"></span> world · news · cache · db · java</a>
+        <a class="nav-link" href="#files"><span class="dot"></span> Files</a>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="shell">
+    <main class="main">
+      <div class="content">
+        <header class="page-hero">
+          <h1 data-i18n="docs_title">Documentation</h1>
+          <p class="lead" data-i18n="eselect_docs_lead">
+            Module reference: profile, repository, reflector, world/news/cache/db/java and the files ae-eselect manages.
+          </p>
+        </header>
+
+        <section id="install">
+          <h2 data-i18n="section_install">Installation</h2>
+          <div class="lang-block" data-lang-block="en">
+            <p>Through aura-emerge (recommended):</p>
+            <pre><code>git clone https://github.com/Undercat037/ae-eselect
+cd ae-eselect
+emerge --usepkgbuild ./ --ask</code></pre>
+            <p>Through makepkg or make:</p>
+            <pre><code>makepkg -si
+# or
+make install</code></pre>
+            <p>Dependencies: <code>gnupg</code> (key import for repositories), <code>pacman</code> (libalpm), <code>curl</code> (for <code>reflector</code>) and <code>aura-emerge</code> itself (eselect edits <code>/etc/portage/</code>, which is pointless without AE).</p>
+          </div>
+          <div class="lang-block" data-lang-block="ua" hidden>
+            <p>Через aura-emerge (рекомендовано):</p>
+            <pre><code>git clone https://github.com/Undercat037/ae-eselect
+cd ae-eselect
+emerge --usepkgbuild ./ --ask</code></pre>
+            <p>Через makepkg або make:</p>
+            <pre><code>makepkg -si
+# або
+make install</code></pre>
+            <p>Залежності: <code>gnupg</code> (імпорт ключів репозиторіїв), <code>pacman</code> (libalpm), <code>curl</code> (для <code>reflector</code>) і сам <code>aura-emerge</code> — eselect править <code>/etc/portage/</code>, що без сенсу без AE.</p>
+          </div>
+          <div class="lang-block" data-lang-block="ru" hidden>
+            <p>Через aura-emerge (рекомендуется):</p>
+            <pre><code>git clone https://github.com/Undercat037/ae-eselect
+cd ae-eselect
+emerge --usepkgbuild ./ --ask</code></pre>
+            <p>Через makepkg или make:</p>
+            <pre><code>makepkg -si
+# или
+make install</code></pre>
+            <p>Зависимости: <code>gnupg</code> (импорт ключей репозиториев), <code>pacman</code> (libalpm), <code>curl</code> (для <code>reflector</code>) и сам <code>aura-emerge</code> — eselect правит <code>/etc/portage/</code>, что без AE бессмысленно.</p>
+          </div>
+        </section>
+
+        <section id="modules">
+          <h2 data-i18n="nav_modules">Modules</h2>
+          <div class="table-wrap">
+            <table class="flag-table">
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Actions</th>
+                  <th class="lang-block" data-lang-block="en">Manages</th>
+                  <th class="lang-block" data-lang-block="ua" hidden>Керує</th>
+                  <th class="lang-block" data-lang-block="ru" hidden>Управляет</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>profile</code></td>
+                  <td><code>list</code> · <code>show</code> · <code>set &lt;N|path&gt;</code></td>
+                  <td class="lang-block" data-lang-block="en"><code>/etc/portage/make.profile</code> → the <code>/var/db/portage/profiles/</code> tree</td>
+                  <td class="lang-block" data-lang-block="ua" hidden><code>/etc/portage/make.profile</code> → дерево <code>/var/db/portage/profiles/</code></td>
+                  <td class="lang-block" data-lang-block="ru" hidden><code>/etc/portage/make.profile</code> → дерево <code>/var/db/portage/profiles/</code></td>
+                </tr>
+                <tr>
+                  <td><code>repository</code></td>
+                  <td><code>list [-i]</code> · <code>enable</code> · <code>disable</code> · <code>remove [-f]</code> · <code>add &lt;name&gt; &lt;uri&gt; [-p N] [--sig L]</code> · <code>packages [-v] [-r] &lt;name&gt;</code></td>
+                  <td class="lang-block" data-lang-block="en"><code>/etc/portage/repos.conf/eselect.conf</code> + key and mirrorlist import</td>
+                  <td class="lang-block" data-lang-block="ua" hidden><code>/etc/portage/repos.conf/eselect.conf</code> + імпорт ключів і mirrorlist</td>
+                  <td class="lang-block" data-lang-block="ru" hidden><code>/etc/portage/repos.conf/eselect.conf</code> + импорт ключей и mirrorlist</td>
+                </tr>
+                <tr>
+                  <td><code>reflector</code></td>
+                  <td><code>rank [-n N] [-t S] [-j N] [--protocol P] [--active-only] [-p] &lt;repo&gt;...</code> · <code>list</code></td>
+                  <td class="lang-block" data-lang-block="en">Ranks the mirrors of repository mirrorlists, fastest first</td>
+                  <td class="lang-block" data-lang-block="ua" hidden>Ранжує mirrorlist репозиторіїв, найшвидші першими</td>
+                  <td class="lang-block" data-lang-block="ru" hidden>Ранжирует mirrorlist репозиториев, самые быстрые первыми</td>
+                </tr>
+                <tr>
+                  <td><code>java</code></td>
+                  <td><code>status</code> · <code>get</code> · <code>set &lt;env&gt;</code> · <code>unset</code> · <code>fix</code></td>
+                  <td class="lang-block" data-lang-block="en"><code>/usr/lib/jvm/default</code>; also available as <code>archlinux-java</code></td>
+                  <td class="lang-block" data-lang-block="ua" hidden><code>/usr/lib/jvm/default</code>; доступний і як <code>archlinux-java</code></td>
+                  <td class="lang-block" data-lang-block="ru" hidden><code>/usr/lib/jvm/default</code>; доступен и как <code>archlinux-java</code></td>
+                </tr>
+                <tr>
+                  <td><code>news</code></td>
+                  <td><code>list</code> · <code>read [N|all]</code></td>
+                  <td class="lang-block" data-lang-block="en">Arch News, delegates to <code>emerge --news</code></td>
+                  <td class="lang-block" data-lang-block="ua" hidden>Новини Arch, делегує <code>emerge --news</code></td>
+                  <td class="lang-block" data-lang-block="ru" hidden>Новости Arch, делегирует <code>emerge --news</code></td>
+                </tr>
+                <tr>
+                  <td><code>world</code></td>
+                  <td><code>show</code> · <code>regen [-p] [-a]</code></td>
+                  <td class="lang-block" data-lang-block="en"><code>/etc/portage/world</code>: adds explicitly installed packages that are missing</td>
+                  <td class="lang-block" data-lang-block="ua" hidden><code>/etc/portage/world</code>: додає явно встановлені пакунки, яких бракує</td>
+                  <td class="lang-block" data-lang-block="ru" hidden><code>/etc/portage/world</code>: добавляет явно установленные пакеты, которых не хватает</td>
+                </tr>
+                <tr>
+                  <td><code>cache</code></td>
+                  <td><code>clean [--pkgcache] [--sources] [--packages] [--build] [--all] [-p] [-y]</code></td>
+                  <td class="lang-block" data-lang-block="en">The pacman cache + <code>~/.cache/aura-emerge/</code> of every user</td>
+                  <td class="lang-block" data-lang-block="ua" hidden>Кеш pacman + <code>~/.cache/aura-emerge/</code> усіх користувачів</td>
+                  <td class="lang-block" data-lang-block="ru" hidden>Кеш pacman + <code>~/.cache/aura-emerge/</code> всех пользователей</td>
+                </tr>
+                <tr>
+                  <td><code>db</code></td>
+                  <td><code>status</code> · <code>lock</code> · <code>unlock [-f]</code></td>
+                  <td class="lang-block" data-lang-block="en"><code>/var/lib/pacman/db.lck</code>; <code>unlock</code> refuses while a package manager is running</td>
+                  <td class="lang-block" data-lang-block="ua" hidden><code>/var/lib/pacman/db.lck</code>; <code>unlock</code> відмовляє, поки працює пакетний менеджер</td>
+                  <td class="lang-block" data-lang-block="ru" hidden><code>/var/lib/pacman/db.lck</code>; <code>unlock</code> отказывает, пока работает пакетный менеджер</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 data-i18n="section_usage">Usage</h3>
+          <div class="lang-block" data-lang-block="en">
+            <p>The output follows Gentoo <code>eselect</code>: bold green list headings, a numbered <code>[N]</code> column, <code>*</code> marks the active entry, errors look like <code>!!! Error: …</code>. Global options: <code>--brief</code> (no headings, no <code>*</code> marker) and <code>--colour=yes|no|auto</code>.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect</span>                          <span class="t-dim"># global options and the module list</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect profile</span>                 <span class="t-dim"># the actions of one module</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect profile help</span>           <span class="t-dim"># the same, with descriptions</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect &lt;module&gt; &lt;action&gt; --help</span>   <span class="t-dim"># man eselect-&lt;module&gt;-&lt;action&gt;</span></code></pre>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect profile list</span>            <span class="t-dim"># numbered list, the current one marked *</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect profile set 3</span>      <span class="t-dim"># by number, or by path</span></code></pre>
+          </div>
+          <div class="lang-block" data-lang-block="ua" hidden>
+            <p>Вивід слідує Gentoo <code>eselect</code>: жирні зелені заголовки списків, нумерована колонка <code>[N]</code>, <code>*</code> позначає активний запис, помилки виглядають як <code>!!! Error: …</code>. Глобальні опції: <code>--brief</code> (без заголовків і позначки <code>*</code>) та <code>--colour=yes|no|auto</code>.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect</span>                          <span class="t-dim"># глобальні опції та список модулів</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect profile</span>                 <span class="t-dim"># дії одного модуля</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect profile help</span>           <span class="t-dim"># те саме, з описами</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect &lt;module&gt; &lt;action&gt; --help</span>   <span class="t-dim"># man eselect-&lt;module&gt;-&lt;action&gt;</span></code></pre>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect profile list</span>            <span class="t-dim"># нумерований список, поточний позначено *</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect profile set 3</span>      <span class="t-dim"># за номером або шляхом</span></code></pre>
+          </div>
+          <div class="lang-block" data-lang-block="ru" hidden>
+            <p>Вывод следует Gentoo <code>eselect</code>: жирные зелёные заголовки списков, нумерованная колонка <code>[N]</code>, <code>*</code> помечает активную запись, ошибки выглядят как <code>!!! Error: …</code>. Глобальные опции: <code>--brief</code> (без заголовков и отметки <code>*</code>) и <code>--colour=yes|no|auto</code>.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect</span>                          <span class="t-dim"># глобальные опции и список модулей</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect profile</span>                 <span class="t-dim"># действия одного модуля</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect profile help</span>           <span class="t-dim"># то же, с описаниями</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect &lt;module&gt; &lt;action&gt; --help</span>   <span class="t-dim"># man eselect-&lt;module&gt;-&lt;action&gt;</span></code></pre>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect profile list</span>            <span class="t-dim"># нумерованный список, текущий помечен *</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect profile set 3</span>      <span class="t-dim"># по номеру или пути</span></code></pre>
+          </div>
+        </section>
+
+        <section id="profile">
+          <h2>profile</h2>
+          <div class="lang-block" data-lang-block="en">
+            <p>A profile is a leaf directory of the <code>/var/db/portage/profiles</code> tree that contains <code>packages</code>, <code>package.profile</code>, <code>package.mask</code>, <code>make.defaults</code> or <code>parent</code>. <code>set</code> takes a number from <code>list</code>, an absolute path or a path relative to the tree; the link is written as a relative one and replaced atomically. If <code>make.profile</code> is a real directory or file, <code>set</code> asks and moves it to <code>make.profile.bak</code> — it never deletes it. Like the original, <code>set</code> prints nothing on success.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect profile show</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect profile set default/linux/amd64/23.0</span></code></pre>
+          </div>
+          <div class="lang-block" data-lang-block="ua" hidden>
+            <p>Профіль — кінцевий каталог дерева <code>/var/db/portage/profiles</code>, що містить <code>packages</code>, <code>package.profile</code>, <code>package.mask</code>, <code>make.defaults</code> або <code>parent</code>. <code>set</code> приймає номер із <code>list</code>, абсолютний шлях або шлях відносно дерева; посилання пишеться відносним і замінюється атомарно. Якщо <code>make.profile</code> — справжній каталог чи файл, <code>set</code> питає і переносить його у <code>make.profile.bak</code> — ніколи не видаляє. Як і оригінал, <code>set</code> нічого не друкує при успіху.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect profile show</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect profile set default/linux/amd64/23.0</span></code></pre>
+          </div>
+          <div class="lang-block" data-lang-block="ru" hidden>
+            <p>Профиль — листовой каталог дерева <code>/var/db/portage/profiles</code>, содержащий <code>packages</code>, <code>package.profile</code>, <code>package.mask</code>, <code>make.defaults</code> или <code>parent</code>. <code>set</code> принимает номер из <code>list</code>, абсолютный путь или путь относительно дерева; ссылка пишется относительной и заменяется атомарно. Если <code>make.profile</code> — настоящий каталог или файл, <code>set</code> спрашивает и переносит его в <code>make.profile.bak</code> — никогда не удаляет. Как и оригинал, <code>set</code> при успехе ничего не печатает.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect profile show</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect profile set default/linux/amd64/23.0</span></code></pre>
+          </div>
+        </section>
+
+        <section id="repository">
+          <h2>repository</h2>
+          <div class="lang-block" data-lang-block="en">
+            <p>AE reads <code>/etc/portage/repos.conf</code> (<a href="../aura-emerge/docs.html#reposconf">FEATURES="repos"</a>); eselect owns exactly one file there, <code>/etc/portage/repos.conf/eselect.conf</code>. <code>enable</code>/<code>add</code> write a <code>[name]</code> block with the keys AE understands (<code>priority</code>, <code>sync-uri</code>, <code>include</code>, <code>verify-signature</code>, <code>location</code>, <code>auto-sync</code>, <code>sync-type</code>); <code>disable</code> keeps the block as <code>#| </code>-commented lines so <code>enable</code> can restore it; <code>remove</code> deletes it. A name already defined in another repos.conf file produces a warning and a question; if <code>repos.conf</code> is still a single file, eselect offers to turn it into a directory (the old file becomes <code>repos.conf/00-main.conf</code>), and it warns when <code>FEATURES="repos"</code> is not set.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect repository list -i</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository enable chaotic-aur</span>   <span class="t-dim"># from the local db + key import</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository add myrepo 'https://example.org/$repo/os/$arch' -p 60</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository disable myrepo</span>       <span class="t-dim"># block stays, enable restores it</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository remove -f myrepo</span></code></pre>
+            <h3>Keys</h3>
+            <p>On <code>enable|add</code> (the first match wins): <code>/usr/share/pacman/keyrings/&lt;name&gt;.gpg</code> (+ <code>-trusted</code>/<code>-revoked</code>, the same steps as <code>pacman-key --populate &lt;name&gt;</code>), or <code>/var/db/portage/repos/&lt;name&gt;/keys/&lt;name&gt;.gpg</code> from the local repository database. A template <code>/var/db/portage/repos/&lt;name&gt;/&lt;name&gt;.conf</code> is optional; a <code>mirrorlist</code> next to it is installed if the include target is missing. <code>packages [-v] [-r] &lt;name&gt;</code> reads <code>/var/lib/pacman/sync/&lt;name&gt;.db</code> directly and prints one package per line, plain text — suitable for redirection (<code>-v</code> adds the version, <code>-r</code> adds the <code>&lt;repo&gt;/</code> prefix).</p>
+          </div>
+          <div class="lang-block" data-lang-block="ua" hidden>
+            <p>AE читає <code>/etc/portage/repos.conf</code> (<a href="../aura-emerge/docs.html#reposconf">FEATURES="repos"</a>); eselect володіє там рівно одним файлом, <code>/etc/portage/repos.conf/eselect.conf</code>. <code>enable</code>/<code>add</code> пишуть блок <code>[name]</code> з ключами, які розуміє AE (<code>priority</code>, <code>sync-uri</code>, <code>include</code>, <code>verify-signature</code>, <code>location</code>, <code>auto-sync</code>, <code>sync-type</code>); <code>disable</code> лишає блок як рядки з коментарем <code>#| </code>, щоб <code>enable</code> міг його відновити; <code>remove</code> видаляє. Ім'я, вже визначене в іншому файлі repos.conf, дає попередження й питання; якщо <code>repos.conf</code> — ще одиночний файл, eselect запропонує перетворити його на каталог (старий файл стане <code>repos.conf/00-main.conf</code>), і попередить, коли <code>FEATURES="repos"</code> не задано.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect repository list -i</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository enable chaotic-aur</span>   <span class="t-dim"># з локальної бази + імпорт ключів</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository add myrepo 'https://example.org/$repo/os/$arch' -p 60</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository disable myrepo</span>       <span class="t-dim"># блок лишається, enable відновить</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository remove -f myrepo</span></code></pre>
+            <h3>Ключі</h3>
+            <p>На <code>enable|add</code> (перший збіг): <code>/usr/share/pacman/keyrings/&lt;name&gt;.gpg</code> (+ <code>-trusted</code>/<code>-revoked</code>, кроки як у <code>pacman-key --populate &lt;name&gt;</code>) або <code>/var/db/portage/repos/&lt;name&gt;/keys/&lt;name&gt;.gpg</code> з локальної бази репозиторіїв. Шаблон <code>/var/db/portage/repos/&lt;name&gt;/&lt;name&gt;.conf</code> необов'язковий; <code>mirrorlist</code> поруч встановлюється, якщо цілі include ще немає. <code>packages [-v] [-r] &lt;name&gt;</code> читає <code>/var/lib/pacman/sync/&lt;name&gt;.db</code> напряму і друкує один пакунок на рядок — чистий текст для перенаправлення (<code>-v</code> додає версію, <code>-r</code> — префікс <code>&lt;repo&gt;/</code>).</p>
+          </div>
+          <div class="lang-block" data-lang-block="ru" hidden>
+            <p>AE читает <code>/etc/portage/repos.conf</code> (<a href="../aura-emerge/docs.html#reposconf">FEATURES="repos"</a>); eselect владеет там ровно одним файлом, <code>/etc/portage/repos.conf/eselect.conf</code>. <code>enable</code>/<code>add</code> пишут блок <code>[name]</code> с ключами, которые понимает AE (<code>priority</code>, <code>sync-uri</code>, <code>include</code>, <code>verify-signature</code>, <code>location</code>, <code>auto-sync</code>, <code>sync-type</code>); <code>disable</code> оставляет блок строками с комментарием <code>#| </code>, чтобы <code>enable</code> мог его восстановить; <code>remove</code> удаляет. Имя, уже определённое в другом файле repos.conf, даёт предупреждение и вопрос; если <code>repos.conf</code> ещё одиночный файл, eselect предложит превратить его в каталог (старый файл станет <code>repos.conf/00-main.conf</code>), и предупредит, когда <code>FEATURES="repos"</code> не задано.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect repository list -i</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository enable chaotic-aur</span>   <span class="t-dim"># из локальной базы + импорт ключей</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository add myrepo 'https://example.org/$repo/os/$arch' -p 60</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository disable myrepo</span>       <span class="t-dim"># блок остаётся, enable восстановит</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect repository remove -f myrepo</span></code></pre>
+            <h3>Ключи</h3>
+            <p>На <code>enable|add</code> (первое совпадение): <code>/usr/share/pacman/keyrings/&lt;name&gt;.gpg</code> (+ <code>-trusted</code>/<code>-revoked</code>, шаги как у <code>pacman-key --populate &lt;name&gt;</code>) или <code>/var/db/portage/repos/&lt;name&gt;/keys/&lt;name&gt;.gpg</code> из локальной базы репозиториев. Шаблон <code>/var/db/portage/repos/&lt;name&gt;/&lt;name&gt;.conf</code> необязателен; <code>mirrorlist</code> рядом устанавливается, если цели include ещё нет. <code>packages [-v] [-r] &lt;name&gt;</code> читает <code>/var/lib/pacman/sync/&lt;name&gt;.db</code> напрямую и печатает один пакет на строку — чистый текст для перенаправления (<code>-v</code> добавляет версию, <code>-r</code> — префикс <code>&lt;repo&gt;/</code>).</p>
+          </div>
+        </section>
+
+        <section id="reflector">
+          <h2>reflector</h2>
+          <div class="lang-block" data-lang-block="en">
+            <p>Ranks the mirrors of repository mirrorlists and rewrites them, fastest first. Ranking goes through the <code>rank</code> action: repository names follow it. Only the source in effect is read — with <code>FEATURES="repos"</code> in make.conf the repos.conf chain (<code>include =</code>), otherwise <code>/etc/pacman.conf</code> (<code>Include =</code>); repositories sharing one mirrorlist are ranked once. Every <code>Server =</code> line counts, commented-out ones included; each mirror is probed with <code>curl</code> (the first 512 KiB of <code>&lt;repo&gt;.db</code>), and a copy of the rewritten mirrorlist is kept as <code>*.eselect-bak</code>.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect reflector list</span>            <span class="t-dim"># which mirrorlist belongs to which repo</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect reflector rank -p core blackarch</span>   <span class="t-dim"># ranking only, writes nothing</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect reflector rank core blackarch world system</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect reflector rank -n 5 --protocol all blackarch</span></code></pre>
+            <div class="table-wrap">
+              <table class="flag-table">
+                <thead>
+                  <tr><th>Option</th><th class="lang-block" data-lang-block="en">Purpose</th><th class="lang-block" data-lang-block="ua" hidden>Призначення</th><th class="lang-block" data-lang-block="ru" hidden>Назначение</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><code>-n, --number &lt;N&gt;</code></td><td class="lang-block" data-lang-block="en">How many of the fastest mirrors stay active (10)</td><td class="lang-block" data-lang-block="ua" hidden>Скільки найшвидших дзеркал лишаються активними (10)</td><td class="lang-block" data-lang-block="ru" hidden>Сколько самых быстрых зеркал остаются активными (10)</td></tr>
+                  <tr><td><code>-t, --timeout &lt;S&gt;</code></td><td class="lang-block" data-lang-block="en">Total probe time of one mirror, seconds (5)</td><td class="lang-block" data-lang-block="ua" hidden>Загальний час проби одного дзеркала, с (5)</td><td class="lang-block" data-lang-block="ru" hidden>Суммарное время пробы одного зеркала, с (5)</td></tr>
+                  <tr><td><code>-j, --jobs &lt;N&gt;</code></td><td class="lang-block" data-lang-block="en">Parallel probes (8)</td><td class="lang-block" data-lang-block="ua" hidden>Паралельні проби (8)</td><td class="lang-block" data-lang-block="ru" hidden>Параллельные пробы (8)</td></tr>
+                  <tr><td><code>--protocol &lt;P&gt;</code></td><td class="lang-block" data-lang-block="en"><code>https</code> (default), <code>http</code> or <code>all</code></td><td class="lang-block" data-lang-block="ua" hidden><code>https</code> (типово), <code>http</code> або <code>all</code></td><td class="lang-block" data-lang-block="ru" hidden><code>https</code> (по умолчанию), <code>http</code> или <code>all</code></td></tr>
+                  <tr><td><code>--active-only</code></td><td class="lang-block" data-lang-block="en">Only consider the mirrors active now</td><td class="lang-block" data-lang-block="ua" hidden>Лише дзеркала, активні зараз</td><td class="lang-block" data-lang-block="ru" hidden>Только зеркала, активные сейчас</td></tr>
+                  <tr><td><code>-p, --pretend</code></td><td class="lang-block" data-lang-block="en">Show the ranking, write nothing (no root needed)</td><td class="lang-block" data-lang-block="ua" hidden>Показати ранжування, нічого не писати (root не потрібен)</td><td class="lang-block" data-lang-block="ru" hidden>Показать ранжирование, ничего не писать (root не нужен)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="lang-block" data-lang-block="ua" hidden>
+            <p>Ранжує дзеркала mirrorlist-ів репозиторіїв і переписує їх, найшвидші першими. Ранжування йде через дію <code>rank</code>: назви репозиторіїв ідуть за нею. Читається лише те джерело, що діє: з <code>FEATURES="repos"</code> у make.conf — ланцюг repos.conf (<code>include =</code>), без нього — <code>/etc/pacman.conf</code> (<code>Include =</code>); репозиторії зі спільним mirrorlist ранжуються один раз. Рахуються всі рядки <code>Server =</code>, включно із закоментованими; кожне дзеркало пробується через <code>curl</code> (перші 512 КБ <code>&lt;repo&gt;.db</code>), копія переписаного mirrorlist лишається як <code>*.eselect-bak</code>.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect reflector list</span>            <span class="t-dim"># який mirrorlist до якого репо</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect reflector rank -p core blackarch</span>   <span class="t-dim"># лише ранжування, без запису</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect reflector rank core blackarch world system</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect reflector rank -n 5 --protocol all blackarch</span></code></pre>
+            <div class="table-wrap">
+              <table class="flag-table">
+                <thead>
+                  <tr><th>Option</th><th>Призначення</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><code>-n, --number &lt;N&gt;</code></td><td>Скільки найшвидших дзеркал лишаються активними (10)</td></tr>
+                  <tr><td><code>-t, --timeout &lt;S&gt;</code></td><td>Загальний час проби одного дзеркала, с (5)</td></tr>
+                  <tr><td><code>-j, --jobs &lt;N&gt;</code></td><td>Паралельні проби (8)</td></tr>
+                  <tr><td><code>--protocol &lt;P&gt;</code></td><td><code>https</code> (типово), <code>http</code> або <code>all</code></td></tr>
+                  <tr><td><code>--active-only</code></td><td>Лише дзеркала, активні зараз</td></tr>
+                  <tr><td><code>-p, --pretend</code></td><td>Показати ранжування, нічого не писати (root не потрібен)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="lang-block" data-lang-block="ru" hidden>
+            <p>Ранжирует зеркала mirrorlist-ов репозиториев и переписывает их, самые быстрые первыми. Ранжирование идёт через действие <code>rank</code>: имена репозиториев идут за ним. Читается только действующий источник: с <code>FEATURES="repos"</code> в make.conf — цепочка repos.conf (<code>include =</code>), без него — <code>/etc/pacman.conf</code> (<code>Include =</code>); репозитории с общим mirrorlist ранжируются один раз. Учитываются все строки <code>Server =</code>, включая закомментированные; каждое зеркало пробуется через <code>curl</code> (первые 512 КБ <code>&lt;repo&gt;.db</code>), копия переписанного mirrorlist остаётся как <code>*.eselect-bak</code>.</p>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect reflector list</span>            <span class="t-dim"># какой mirrorlist к какому репо</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect reflector rank -p core blackarch</span>   <span class="t-dim"># только ранжирование, без записи</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect reflector rank core blackarch world system</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect reflector rank -n 5 --protocol all blackarch</span></code></pre>
+            <div class="table-wrap">
+              <table class="flag-table">
+                <thead>
+                  <tr><th>Option</th><th>Назначение</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><code>-n, --number &lt;N&gt;</code></td><td>Сколько самых быстрых зеркал остаются активными (10)</td></tr>
+                  <tr><td><code>-t, --timeout &lt;S&gt;</code></td><td>Суммарное время пробы одного зеркала, с (5)</td></tr>
+                  <tr><td><code>-j, --jobs &lt;N&gt;</code></td><td>Параллельные пробы (8)</td></tr>
+                  <tr><td><code>--protocol &lt;P&gt;</code></td><td><code>https</code> (по умолчанию), <code>http</code> или <code>all</code></td></tr>
+                  <tr><td><code>--active-only</code></td><td>Только зеркала, активные сейчас</td></tr>
+                  <tr><td><code>-p, --pretend</code></td><td>Показать ранжирование, ничего не писать (root не нужен)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="tools">
+          <h2>world · news · cache · db · java</h2>
+          <div class="lang-block" data-lang-block="en">
+            <ul>
+              <li><strong>world</strong> — <code>show</code> prints the world file; <code>regen</code> reads explicitly installed packages straight from <code>/var/lib/pacman/local</code> (without calling pacman) and appends the missing ones. <code>-p</code> only shows them (no root), <code>-a</code> asks before writing.</li>
+              <li><strong>news</strong> — <code>eselect news</code> lists the <a href="https://archlinux.org/news/" target="_blank" rel="noopener">Arch news</a> feed, <code>read N</code> reads an item, <code>read all</code> marks everything as read.</li>
+              <li><strong>cache</strong> — <code>--pkgcache</code> (<code>/var/cache/pacman/pkg</code>), <code>--sources</code>, <code>--packages</code>, <code>--build</code> (<code>~/.cache/aura-emerge/…</code> of every user) or <code>--all</code>; <code>-p</code> is a dry run, <code>-y</code> skips the confirmation. Under root, user-planted symlinks are not followed.</li>
+              <li><strong>db</strong> — <code>status</code> shows the lock, its age and the running package managers; <code>lock</code>/<code>unlock</code> manage <code>/var/lib/pacman/db.lck</code>; <code>unlock</code> refuses while <code>pacman</code>, <code>emerge</code>, <code>paru</code>, <code>yay</code> or <code>pamac-daemon</code> runs (<code>-f</code> forces).</li>
+              <li><strong>java</strong> — a built-in replacement for <code>archlinux-java</code>: <code>status</code>/<code>get</code>/<code>set</code>/<code>unset</code>/<code>fix</code> over <code>/usr/lib/jvm</code>; reachable as <code>archlinux-java</code> if you create that link yourself.</li>
+            </ul>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect world show</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect world regen -p</span>            <span class="t-dim"># what would be added</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect world regen -a</span>       <span class="t-dim"># add the missing ones, with confirmation</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect news read 8</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect cache clean --all -p</span> <span class="t-dim"># dry run</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect db status</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect db unlock</span></code></pre>
+          </div>
+          <div class="lang-block" data-lang-block="ua" hidden>
+            <ul>
+              <li><strong>world</strong> — <code>show</code> друкує world; <code>regen</code> читає явно встановлені пакунки прямо з <code>/var/lib/pacman/local</code> (без виклику pacman) і додає відсутні. <code>-p</code> лише показує (без root), <code>-a</code> питає перед записом.</li>
+              <li><strong>news</strong> — <code>eselect news</code> показує стрічку <a href="https://archlinux.org/news/" target="_blank" rel="noopener">новин Arch</a>, <code>read N</code> читає пункт, <code>read all</code> позначає все прочитаним.</li>
+              <li><strong>cache</strong> — <code>--pkgcache</code> (<code>/var/cache/pacman/pkg</code>), <code>--sources</code>, <code>--packages</code>, <code>--build</code> (<code>~/.cache/aura-emerge/…</code> кожного користувача) або <code>--all</code>; <code>-p</code> — сухий прогін, <code>-y</code> без підтвердження. Під root symlink-и, підсаджені користувачем, не проходяться.</li>
+              <li><strong>db</strong> — <code>status</code> показує блокування, його вік і запущені пакетні менеджери; <code>lock</code>/<code>unlock</code> керують <code>/var/lib/pacman/db.lck</code>; <code>unlock</code> відмовляє, поки працюють <code>pacman</code>, <code>emerge</code>, <code>paru</code>, <code>yay</code> чи <code>pamac-daemon</code> (<code>-f</code> примусово).</li>
+              <li><strong>java</strong> — вбудована заміна <code>archlinux-java</code>: <code>status</code>/<code>get</code>/<code>set</code>/<code>unset</code>/<code>fix</code> над <code>/usr/lib/jvm</code>; доступний як <code>archlinux-java</code>, якщо створити таке посилання самотужки.</li>
+            </ul>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect world show</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect world regen -p</span>            <span class="t-dim"># що було б додано</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect world regen -a</span>       <span class="t-dim"># додати відсутні, з підтвердженням</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect news read 8</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect cache clean --all -p</span> <span class="t-dim"># сухий прогін</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect db status</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect db unlock</span></code></pre>
+          </div>
+          <div class="lang-block" data-lang-block="ru" hidden>
+            <ul>
+              <li><strong>world</strong> — <code>show</code> печатает world; <code>regen</code> читает явно установленные пакеты прямо из <code>/var/lib/pacman/local</code> (без вызова pacman) и добавляет отсутствующие. <code>-p</code> только показывает (без root), <code>-a</code> спрашивает перед записью.</li>
+              <li><strong>news</strong> — <code>eselect news</code> показывает ленту <a href="https://archlinux.org/news/" target="_blank" rel="noopener">новостей Arch</a>, <code>read N</code> читает пункт, <code>read all</code> помечает всё прочитанным.</li>
+              <li><strong>cache</strong> — <code>--pkgcache</code> (<code>/var/cache/pacman/pkg</code>), <code>--sources</code>, <code>--packages</code>, <code>--build</code> (<code>~/.cache/aura-emerge/…</code> каждого пользователя) или <code>--all</code>; <code>-p</code> — сухой прогон, <code>-y</code> без подтверждения. Под root симлинки, подсаженные пользователем, не проходятся.</li>
+              <li><strong>db</strong> — <code>status</code> показывает блокировку, её возраст и запущенные пакетные менеджеры; <code>lock</code>/<code>unlock</code> управляют <code>/var/lib/pacman/db.lck</code>; <code>unlock</code> отказывает, пока работают <code>pacman</code>, <code>emerge</code>, <code>paru</code>, <code>yay</code> или <code>pamac-daemon</code> (<code>-f</code> принудительно).</li>
+              <li><strong>java</strong> — встроенная замена <code>archlinux-java</code>: <code>status</code>/<code>get</code>/<code>set</code>/<code>unset</code>/<code>fix</code> над <code>/usr/lib/jvm</code>; доступен как <code>archlinux-java</code>, если создать такую ссылку самостоятельно.</li>
+            </ul>
+            <pre class="term term-blue"><code><span class="t-ps">$</span> <span class="t-cmd">eselect world show</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect world regen -p</span>            <span class="t-dim"># что было бы добавлено</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect world regen -a</span>       <span class="t-dim"># добавить отсутствующие, с подтверждением</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect news read 8</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect cache clean --all -p</span> <span class="t-dim"># сухой прогон</span>
+<span class="t-ps">$</span> <span class="t-cmd">eselect db status</span>
+<span class="t-ps">$</span> <span class="t-cmd">sudo eselect db unlock</span></code></pre>
+          </div>
+        </section>
+
+        <section id="files">
+          <h2>Files</h2>
+          <div class="table-wrap">
+            <table class="flag-table">
+              <thead>
+                <tr>
+                  <th>Path</th>
+                  <th class="lang-block" data-lang-block="en">Purpose</th>
+                  <th class="lang-block" data-lang-block="ua" hidden>Призначення</th>
+                  <th class="lang-block" data-lang-block="ru" hidden>Назначение</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/etc/portage/make.profile</code></td><td class="lang-block" data-lang-block="en">The selected profile (symlink)</td><td class="lang-block" data-lang-block="ua" hidden>Вибраний профіль (симлінк)</td><td class="lang-block" data-lang-block="ru" hidden>Выбранный профиль (симлинк)</td></tr>
+                <tr><td><code>/var/db/portage/profiles/</code></td><td class="lang-block" data-lang-block="en">The profile tree</td><td class="lang-block" data-lang-block="ua" hidden>Дерево профілів</td><td class="lang-block" data-lang-block="ru" hidden>Дерево профилей</td></tr>
+                <tr><td><code>/etc/portage/repos.conf/eselect.conf</code></td><td class="lang-block" data-lang-block="en">Repositories managed by eselect</td><td class="lang-block" data-lang-block="ua" hidden>Репозиторії, керовані eselect</td><td class="lang-block" data-lang-block="ru" hidden>Репозитории, управляемые eselect</td></tr>
+                <tr><td><code>/var/db/portage/repos/&lt;name&gt;/</code></td><td class="lang-block" data-lang-block="en">Repository template and keys</td><td class="lang-block" data-lang-block="ua" hidden>Шаблон репозиторію та ключі</td><td class="lang-block" data-lang-block="ru" hidden>Шаблон репозитория и ключи</td></tr>
+                <tr><td><code>/usr/share/pacman/keyrings/</code></td><td class="lang-block" data-lang-block="en">Keyrings (<code>&lt;name&gt;.gpg</code>)</td><td class="lang-block" data-lang-block="ua" hidden>Кейрінги (<code>&lt;name&gt;.gpg</code>)</td><td class="lang-block" data-lang-block="ru" hidden>Кейринги (<code>&lt;name&gt;.gpg</code>)</td></tr>
+                <tr><td><code>/etc/pacman.d/*mirrorlist*</code></td><td class="lang-block" data-lang-block="en">Mirrorlists rewritten by <code>reflector</code> (a copy is kept as <code>*.eselect-bak</code>)</td><td class="lang-block" data-lang-block="ua" hidden>Mirrorlist-и, переписані <code>reflector</code> (копія лишається як <code>*.eselect-bak</code>)</td><td class="lang-block" data-lang-block="ru" hidden>Mirrorlist-ы, переписанные <code>reflector</code> (копия остаётся как <code>*.eselect-bak</code>)</td></tr>
+                <tr><td><code>/var/lib/pacman/sync/&lt;repo&gt;.db</code></td><td class="lang-block" data-lang-block="en">Sync databases (for <code>repository packages</code>)</td><td class="lang-block" data-lang-block="ua" hidden>Бази sync (для <code>repository packages</code>)</td><td class="lang-block" data-lang-block="ru" hidden>Базы sync (для <code>repository packages</code>)</td></tr>
+                <tr><td><code>/var/lib/pacman/local/</code></td><td class="lang-block" data-lang-block="en">The local database (for <code>world regen</code>)</td><td class="lang-block" data-lang-block="ua" hidden>Локальна база (для <code>world regen</code>)</td><td class="lang-block" data-lang-block="ru" hidden>Локальная база (для <code>world regen</code>)</td></tr>
+                <tr><td><code>/usr/lib/jvm/</code></td><td class="lang-block" data-lang-block="en">Java environments and the <code>default</code>, <code>default-runtime</code> links</td><td class="lang-block" data-lang-block="ua" hidden>Java-середовища та посилання <code>default</code>, <code>default-runtime</code></td><td class="lang-block" data-lang-block="ru" hidden>Java-окружения и ссылки <code>default</code>, <code>default-runtime</code></td></tr>
+                <tr><td><code>/etc/portage/world</code></td><td class="lang-block" data-lang-block="en">The world file</td><td class="lang-block" data-lang-block="ua" hidden>Файл world</td><td class="lang-block" data-lang-block="ru" hidden>Файл world</td></tr>
+                <tr><td><code>/etc/portage/make.conf</code></td><td class="lang-block" data-lang-block="en">Checked for <code>FEATURES="repos"</code></td><td class="lang-block" data-lang-block="ua" hidden>Перевіряється на <code>FEATURES="repos"</code></td><td class="lang-block" data-lang-block="ru" hidden>Проверяется на <code>FEATURES="repos"</code></td></tr>
+                <tr><td><code>/var/lib/pacman/db.lck</code></td><td class="lang-block" data-lang-block="en">The database lock</td><td class="lang-block" data-lang-block="ua" hidden>Блокування бази</td><td class="lang-block" data-lang-block="ru" hidden>Блокировка базы</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <span>
+            © <span id="year">2026</span>
+            <strong>Undercat037</strong> · GPL-3.0
+          </span>
+          <span>
+            <a href="https://github.com/Undercat037/ae-eselect" data-i18n="footer_link_repo">Source Project</a>
+            ·
+            <a href="../aura-emerge/">aura-emerge</a>
+            ·
+            <a href="../">AE projects</a>
+          </span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
