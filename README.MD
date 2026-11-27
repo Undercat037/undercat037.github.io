@@ -3,10 +3,12 @@
 
 # AE Projects
 ## (GitHub Pages)
-https://undercat037.github.io/ae-projects/ <br>
-https://undercat037.github.io/ae-projects/aura-emerge/ <br>
-https://undercat037.github.io/ae-projects/aura-emerge/docs.html <br>
-https://undercat037.github.io/ae-projects/aura-emerge/flags.html <br>
-https://undercat037.github.io/ae-projects/ae-eselect/ <br>
-https://undercat037.github.io/ae-projects/ae-eselect/docs.html
+https://undercat037.github.io <br>
+<br>
+https://undercat037.github.io/aura-emerge/ <br>
+https://undercat037.github.io/aura-emerge/docs.html <br>
+https://undercat037.github.io/aura-emerge/flags.html <br>
+<br>
+https://undercat037.github.io/ae-eselect/ <br>
+https://undercat037.github.io/ae-eselect/docs.html
 </div>
