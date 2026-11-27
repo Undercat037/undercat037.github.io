@@ -3,12 +3,16 @@
 
 # AE Projects
 ## (GitHub Pages)
-https://undercat037.github.io <br>
-<br>
+Root:
+https://undercat037.github.io/ <br>
+AE:<br>
 https://undercat037.github.io/aura-emerge/ <br>
 https://undercat037.github.io/aura-emerge/docs.html <br>
 https://undercat037.github.io/aura-emerge/flags.html <br>
-<br>
+AE-Eselect:<br>
 https://undercat037.github.io/ae-eselect/ <br>
 https://undercat037.github.io/ae-eselect/docs.html
 </div>
+
+
+
